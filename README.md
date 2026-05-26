@@ -97,7 +97,7 @@ Elle reprend les fonctionnalités clés de TikTok :
 ## 🗂️ Architecture du projet
 
 ```
-TikTokClone/
+myAppTiktok/
 ├── android/
 ├── ios/
 ├── src/
@@ -112,31 +112,31 @@ TikTokClone/
 │   │   └── notifications/       # NotificationItem, NotifList
 │   ├── screens/
 │   │   ├── Auth/
-│   │   │   ├── LoginScreen.tsx
-│   │   │   └── RegisterScreen.tsx
+│   │   │   ├── LoginScreen.jsx
+│   │   │   └── RegisterScreen.jsx
 │   │   ├── Feed/
-│   │   │   └── FeedScreen.tsx
+│   │   │   └── FeedScreen.jsx
 │   │   ├── Upload/
-│   │   │   └── UploadScreen.tsx
+│   │   │   └── UploadScreen.jsx
 │   │   ├── Profile/
-│   │   │   └── ProfileScreen.tsx
+│   │   │   └── ProfileScreen.jsx
 │   │   ├── Search/
-│   │   │   └── SearchScreen.tsx
+│   │   │   └── SearchScreen.jsx
 │   │   └── Notifications/
-│   │       └── NotificationsScreen.tsx
+│   │       └── NotificationsScreen.jsx
 │   ├── navigation/              # Stack, Tab, navigateur principal
 │   ├── services/                # Appels Firebase (auth, firestore, storage)
-│   │   ├── firebase.ts
-│   │   ├── authService.ts
-│   │   ├── videoService.ts
-│   │   └── userService.ts
+│   │   ├── firebase.js
+│   │   ├── authService.js
+│   │   ├── videoService.js
+│   │   └── userService.js
 │   ├── store/                   # État global (Redux / Zustand)
-│   │   ├── authStore.ts
-│   │   └── playerStore.ts
+│   │   ├── authStore.js
+│   │   └── playerStore.js
 │   ├── hooks/                   # Custom hooks React
-│   │   ├── useAuth.ts
-│   │   ├── useFeed.ts
-│   │   └── useSearch.ts
+│   │   ├── useAuth.js
+│   │   ├── useFeed.js
+│   │   └── useSearch.js
 │   └── utils/                   # Fonctions utilitaires
 ├── .env                         # Variables d'environnement (ne jamais committer)
 ├── .env.example                 # Template des variables (à committer)
@@ -221,14 +221,14 @@ Chaque membre est **seul responsable** de son domaine. Pas de doublon, pas de co
 **Tâches :**
 - Initialiser le projet React Native CLI + installer toutes les dépendances (`react-navigation`, `zustand`, `@react-native-firebase/*`, etc.)
 - Créer et configurer le projet Firebase (Firestore, Auth, Storage, FCM)
-- Configurer `src/services/firebase.ts` (client Firebase)
+- Configurer `src/services/firebase.js` (client Firebase)
 - Créer le fichier `.env.example`
 - Gérer les branches Git, faire les merges vers `develop`
 - S'assurer que tout le monde peut lancer le projet
 
 **Fichiers principaux :**
 ```
-src/services/firebase.ts
+src/services/firebase.js
 .env.example
 package.json
 android/google-services.json (template)
@@ -246,17 +246,17 @@ ios/GoogleService-Info.plist (template)
 - Connexion email/mot de passe avec Firebase Auth
 - Connexion Google (OAuth)
 - Gestion de la session (persistance)
-- Hook `useAuth.ts`
+- Hook `useAuth.js`
 - Redirection vers le feed si déjà connecté
 
 **Fichiers principaux :**
 ```
-src/screens/Auth/LoginScreen.tsx
-src/screens/Auth/RegisterScreen.tsx
+src/screens/Auth/LoginScreen.jsx
+src/screens/Auth/RegisterScreen.jsx
 src/components/auth/
-src/hooks/useAuth.ts
-src/services/authService.ts
-src/store/authStore.ts
+src/hooks/useAuth.js
+src/services/authService.js
+src/store/authStore.js
 ```
 
 ---
@@ -270,16 +270,16 @@ src/store/authStore.ts
 - Lecture automatique / Pause au tap
 - Récupération des vidéos depuis Firestore
 - Affichage des infos (description, hashtags, auteur)
-- Hook `useFeed.ts`
+- Hook `useFeed.js`
 
 **Fichiers principaux :**
 ```
-src/screens/Feed/FeedScreen.tsx
-src/components/feed/VideoCard.tsx
-src/components/feed/VideoPlayer.tsx
-src/components/feed/FeedList.tsx
-src/hooks/useFeed.ts
-src/services/videoService.ts
+src/screens/Feed/FeedScreen.jsx
+src/components/feed/VideoCard.jsx
+src/components/feed/VideoPlayer.jsx
+src/components/feed/FeedList.jsx
+src/hooks/useFeed.js
+src/services/videoService.js
 ```
 
 ---
@@ -297,9 +297,9 @@ src/services/videoService.ts
 
 **Fichiers principaux :**
 ```
-src/screens/Upload/UploadScreen.tsx
+src/screens/Upload/UploadScreen.jsx
 src/components/upload/
-src/services/videoService.ts (uploadVideo)
+src/services/videoService.js (uploadVideo)
 ```
 
 ---
@@ -316,10 +316,10 @@ src/services/videoService.ts (uploadVideo)
 
 **Fichiers principaux :**
 ```
-src/screens/Profile/ProfileScreen.tsx
-src/components/profile/ProfileHeader.tsx
-src/components/profile/VideoGrid.tsx
-src/services/userService.ts
+src/screens/Profile/ProfileScreen.jsx
+src/components/profile/ProfileHeader.jsx
+src/components/profile/VideoGrid.jsx
+src/services/userService.js
 ```
 
 ---
@@ -337,10 +337,10 @@ src/services/userService.ts
 
 **Fichiers principaux :**
 ```
-src/components/social/LikeButton.tsx
-src/components/social/CommentSheet.tsx
-src/components/social/ShareButton.tsx
-src/services/socialService.ts
+src/components/social/LikeButton.jsx
+src/components/social/CommentSheet.jsx
+src/components/social/ShareButton.jsx
+src/services/socialService.js
 ```
 
 ---
@@ -353,15 +353,15 @@ src/services/socialService.ts
 - Barre de recherche (utilisateurs, hashtags, sons)
 - Page Découverte avec tendances
 - Résultats filtrés et affichage
-- Hook `useSearch.ts`
+- Hook `useSearch.js`
 
 **Fichiers principaux :**
 ```
-src/screens/Search/SearchScreen.tsx
-src/components/search/SearchBar.tsx
-src/components/search/ResultsList.tsx
-src/hooks/useSearch.ts
-src/services/searchService.ts
+src/screens/Search/SearchScreen.jsx
+src/components/search/SearchBar.jsx
+src/components/search/ResultsList.jsx
+src/hooks/useSearch.js
+src/services/searchService.js
 ```
 
 ---
@@ -378,9 +378,9 @@ src/services/searchService.ts
 
 **Fichiers principaux :**
 ```
-src/screens/Notifications/NotificationsScreen.tsx
-src/components/notifications/NotificationItem.tsx
-src/services/notificationService.ts
+src/screens/Notifications/NotificationsScreen.jsx
+src/components/notifications/NotificationItem.jsx
+src/services/notificationService.js
 ```
 
 ---
@@ -463,7 +463,7 @@ docs: mettre à jour le README
 3. ✅ Toujours faire `git pull origin develop` avant de commencer à coder
 4. ✅ Au moins 1 autre membre relit avant de merger une PR
 5. ❌ Ne jamais committer le fichier `.env` — il est dans `.gitignore`
-6. ✅ Nommer les composants en PascalCase : `VideoCard.tsx`, `ProfileHeader.tsx`
+6. ✅ Nommer les composants en PascalCase : `VideoCard.jsx`, `ProfileHeader.jsx`
 7. ✅ Nommer les fonctions/variables en camelCase : `fetchVideos`, `isPlaying`
 8. ✅ Tester sur Android ET iOS avant d'ouvrir une Pull Request
 9. ✅ Commenter le code quand la logique est complexe
