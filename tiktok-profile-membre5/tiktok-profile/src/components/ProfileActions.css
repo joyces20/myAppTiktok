@@ -1,0 +1,56 @@
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.btn-follow {
+  background: #ff0050;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 9px 44px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-follow:hover {
+  background: #e0003e;
+}
+
+.btn-follow:active {
+  transform: scale(0.97);
+}
+
+.btn-follow.following {
+  background: transparent;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 9px 28px;
+}
+
+.btn-follow.following:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-icon {
+  background: transparent;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
