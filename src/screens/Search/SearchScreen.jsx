@@ -25,9 +25,9 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import SearchBar from '../components/search/SearchBar';
-import ResultsList from '../components/search/ResultsList';
-import useSearch from '../hooks/useSearch';
+import SearchBar from '../../components/search/SearchBar';
+import ResultsList from '../../components/search/ResultsList';
+import useSearch from '../../hooks/useSearch';
 
 const { width } = Dimensions.get('window');
 const COLUMN_COUNT = 2;
@@ -84,7 +84,7 @@ const VideoTile = ({ item, onPress }) => (
     activeOpacity={0.85}
   >
     <Image
-      source={item.thumbnailURL ? { uri: item.thumbnailURL } : require('../assets/default-thumb.png')}
+      source={item.thumbnailURL ? { uri: item.thumbnailURL } : {uri:'https://via.placeholder.com/150'}}
       style={styles.videoThumb}
       resizeMode="cover"
     />

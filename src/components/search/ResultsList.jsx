@@ -21,7 +21,7 @@ import {
 const UserItem = ({ item, onPress }) => (
   <TouchableOpacity style={styles.itemRow} onPress={() => onPress(item)} activeOpacity={0.7}>
     <Image
-      source={item.photoURL ? { uri: item.photoURL } : require('../../assets/default-avatar.png')}
+      source={item.photoURL ? { uri: item.photoURL } : {uri:'https://via.placeholder.com/150'}}
       style={styles.avatar}
     />
     <View style={styles.itemInfo}>
